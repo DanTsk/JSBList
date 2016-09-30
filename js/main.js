@@ -23,6 +23,7 @@ $(function () {
 
 
 
+
     $("#addButton").click(function () {
 
         var log = $(".add_panel_inputer");
@@ -44,39 +45,27 @@ $(function () {
 
         var numberL = $(lf_node).find('.number');
         var numberN = $(lf_not_node).find('.number');
+        var product =  $(node).find('.bl-product');
+        var lf_node_label = $(lf_node).find('.label');
+
+        product.bind("DOMSubtreeModified",function(){
+            $(lf_node_label).text($(product).text());
+        });
 
         $(lf_node).find('.label').text(val);
         $(lf_not_node).find('.label').text(val);
         numberL.text(1);
 
+        prevent($(node).find('.bl-product'));
 
         $(node).find('.bl-product').text(val);
         $(node).find('.but_button').click(function () {
 
             if(node.attr('class')!="bl-row state-bought") {
-
-                $(node).addClass('state-bought');
-                $(node).find('.but_button').text("Не куплено");
-
-                var label = $(node).find('.bl-label');
-                var number = parseInt(label.text());
-
-                $(lf_not_node).find('.number').text(number);
-                lf_node.remove();
-                LEFT_BUYED.append(lf_not_node);
+                adder(node,lf_node,lf_not_node);
 
             }else{
-                $(node).removeClass('state-bought');
-                $(node).find('.but_button').text("Куплено");
-
-                 label = $(node).find('.bl-label');
-                 number = parseInt(label.text());
-
-                $(lf_node).find('.number').text(number);
-
-
-                LEFT.append(lf_node);
-                lf_not_node.remove();
+                deleter(node,lf_node,lf_not_node);
             }
         });
         $(node).find('.cancel_button').click(function () {
@@ -84,25 +73,8 @@ $(function () {
             lf_node.remove();
 
         });
-        $(node).find('.bl-plus').click(function () {
-            var label = $(node).find('.bl-label');
-            var number = parseInt(label.text());
-            label.text(number+1);
-            numberL.text(number+1);
-
-
-        });
-        $(node).find('.bl-minus').click(function () {
-            var label = $(node).find('.bl-label');
-            var number = parseInt(label.text());
-
-            if(number-1!=0) {
-                label.text(number - 1);
-                numberL.text(number -1);
-            }
-
-
-        });
+        $(node).find('.bl-plus').click(function () {increase(node,numberL)});
+        $(node).find('.bl-minus').click(function () {decrease(node,numberL)});
         LIST.append(node);
         LEFT.append(lf_node);
 
@@ -111,9 +83,57 @@ $(function () {
 
 
     }
+    function prevent(node) {
+        $(node).on('keypress',function(e) {
+            var code = e.keyCode || e.which;
+            if(code == 13) {
+                e.preventDefault();
+            }
+        }).on('paste',function(){
+            $('br,p',this).replaceWith(' ');
+        });
+    }
+    function increase(node,numberL) {
+        var label = $(node).find('.bl-label');
+        var number = parseInt(label.text());
+        label.text(number+1);
+        numberL.text(number+1);
+    }
+    function decrease(node,numberL) {
+        var label = $(node).find('.bl-label');
+        var number = parseInt(label.text());
+
+        if(number-1!=0) {
+            label.text(number - 1);
+            numberL.text(number -1);
+        }
+    }
+
+    function adder(node,lf_node,lf_not_node) {
+        $(node).addClass('state-bought');
+        $(node).find('.but_button').text("Не куплене");
+        $(node).find('.bl-product').attr("contenteditable",false);
+        var label = $(node).find('.bl-label');
+        var number = parseInt(label.text());
+
+        $(lf_not_node).find('.number').text(number);
+        lf_node.remove();
+        LEFT_BUYED.append(lf_not_node);
+
+    }
+
+    function deleter(node,lf_node,lf_not_node) {
+        $(node).removeClass('state-bought');
+        $(node).find('.but_button').text("Куплене");
+        $(node).find('.bl-product').attr("contenteditable",true);
+        label = $(node).find('.bl-label');
+        number = parseInt(label.text());
+
+        $(lf_node).find('.number').text(number);
 
 
-
-
+        LEFT.append(lf_node);
+        lf_not_node.remove();
+    }
 
 });

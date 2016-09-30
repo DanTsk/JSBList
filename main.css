@@ -58,6 +58,7 @@ body {
     min-width: 200px;
     margin-left: 5%;
     background: white;
+
 }
 
 
@@ -66,6 +67,11 @@ body {
     display: inline-block;
 }
 
+.add_panel_inputer:focus{
+
+    border-color:cornflowerblue;;
+    outline: none;
+}
 
 .bl-buttons{
     width: 37.5%;
@@ -73,6 +79,7 @@ body {
 
 }
 .but_button, .cancel_button {
+    position: relative;
     display: inline-block;
 }
 .but_button{
@@ -135,11 +142,13 @@ body {
 .bl-product{
     font-size: 14px;
     padding-top: 7px;
-
+    white-space: nowrap;
+    overflow: hidden;
     padding-bottom: 7px;
     width: 25%;
     font-family: Geneva;
     float: left;
+    outline: none;
 
 
 }
@@ -219,13 +228,12 @@ body {
 
 
 .bl-plus, .bl-minus{
+    vertical-align: middle;
     color: white;
-    box-shadow: 0 -.25em 0 0 rgba(34,36,38,.15) inset;
-    font-size: 16px;
-    padding-top: 5px;
-    padding-bottom: 9px;
-    padding-left: 10px;
-    padding-right: 9px;
+    box-shadow: 0 -.20em 0 0 rgba(34,36,38,.15) inset;
+    font-size: 18px;
+
+    height: 30px;
     margin-left:5px ;
     margin-right:5px ;
     position: relative;
@@ -239,9 +247,9 @@ body {
     background: #04a613;
 }
 
-
-.bl-plus:hover:after{
+.bl-plus:after, .bl-minus:after{
     background-color: blueviolet;
+    font-size: 10px;
     left:-14px;
     border-radius: 5px;
     bottom: 35px;
@@ -249,12 +257,20 @@ body {
     content: attr(data-tooltip);
     padding: 5px ;
     position: absolute;
+    opacity: 0;
     z-index: 2;
     width: 50px;
-    content: "asdasd";
+    transition: opacity 1s ease;
+
+
+}
+
+.bl-plus:hover:after, .bl-minus:hover:after{
+  opacity: 1;
 }
 
 .bl-minus{
+
     width: 30px;
     border:none;
     border-radius: 50%;
@@ -281,7 +297,68 @@ body {
     border: none;
     font-size: 13px;
     width: 100%;
+    position: relative;
 }
+
+.but_button:after{
+    background-color: blueviolet;
+    font-size: 10px;
+    left:12px;
+    border-radius: 5px;
+    bottom: 35px;
+    color: #fff;
+    content: attr(data-tooltip);
+    padding: 5px ;
+    position: absolute;
+    opacity: 0;
+    z-index: 2;
+    width: 50px;
+    transition: opacity 1s ease;
+
+
+}
+.but_button:hover:after{
+    opacity: 1;
+}
+.cancel_button:after{
+    background-color: blueviolet;
+    font-size: 10px;
+    left:-15px;
+    border-radius: 5px;
+    bottom: 35px;
+    color: #fff;
+    content: attr(data-tooltip);
+    padding: 5px ;
+    position: absolute;
+    opacity: 0;
+    z-index: 2;
+    width: 50px;
+    transition: opacity 1s ease;
+}
+.cancel_button:hover:after{
+  opacity: 1;
+}
+.add_panel_button:after{
+    background-color: blueviolet;
+    font-size: 10px;
+    left:28px;
+    border-radius: 5px;
+    bottom: 45px;
+    color: #fff;
+    content: attr(data-tooltip);
+    padding: 5px ;
+    position: absolute;
+    opacity: 0;
+    z-index: 2;
+    width: 50px;
+    transition: opacity 1s ease;
+
+}
+.add_panel_button:hover:after{
+
+    opacity: 1;
+}
+
 .add_panel_inputer{
     padding-left: 8px;
     border-color: #DADADA;
@@ -381,9 +458,12 @@ body {
     margin: auto;
     width: 100%;
     margin-top: 20px;
-
+    white-space: nowrap;
+    overflow: hidden;
 
 }
+
+
 }
 
 @media print {

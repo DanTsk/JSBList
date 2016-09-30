@@ -18,11 +18,11 @@
     <div class="bl-list">
         <div class="add_panel">
             <div class="add_panel_input">
-                <input class="add_panel_inputer" type="text" placeholder="Назва товару">
+                <input class="add_panel_inputer" type="text" placeholder="Назва товару" >
             </div>
             <div class="add_panel_button_container">
 
-            <button id="addButton" class="add_panel_button">Додати</button>
+            <button id="addButton" class="add_panel_button" data-tooltip="Додати у список"> Додати</button>
 
             </div>
         </div>
@@ -63,17 +63,17 @@
 
 <div class="bl-row-temp" style="display: none">
     <div class="bl-row">
-        <div class="bl-product">
+        <div class="bl-product" contenteditable="true">
             Помідори
         </div>
         <div class="bl-count">
-            <button class="bl-minus">-</button>
+            <button class="bl-minus"  data-tooltip="Мінус">-</button>
             <span class="bl-label">1</span>
-            <button class="bl-plus">+</button>
+            <button class="bl-plus" data-tooltip="Плюс">+</button>
         </div>
         <div class="bl-buttons">
-            <div class="but_button"> Куплене</div>
-            <div class="cancel_button">x</div>
+            <div class="but_button" data-tooltip="Купити"> Куплене</div>
+            <div class="cancel_button" data-tooltip="Видалити">x</div>
         </div>
     </div>
 </div>
