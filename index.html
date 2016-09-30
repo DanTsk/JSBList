@@ -13,81 +13,81 @@
 
 
 <div class="bl-background">
-    <div class="bl-bought">
-        <div class="bl-title">Залишилося</div>
-        <div class="bl-left">
-            <span class="bl-b-left-label"> Помідори <span class="number">12</span></span>
-            <span class="bl-b-left-label"> Яблуко <span class="number">1</span></span>
-            <span class="bl-b-left-label"> Огірки <span class="number">5</span></span>
 
-        </div>
-        <div class="bl-title-b">Куплене</div>
-        <div class="bl-left"></div>
-
-    </div>
-
+    <div class="list-temp">
     <div class="bl-list">
         <div class="add_panel">
             <div class="add_panel_input">
                 <input class="add_panel_inputer" type="text" placeholder="Назва товару">
             </div>
             <div class="add_panel_button_container">
-            <button class="add_panel_button">Додати</button>
+
+            <button id="addButton" class="add_panel_button">Додати</button>
+
             </div>
         </div>
 
-
-
-
-
-        <div class="bl-row">
-            <div class="bl-product">
-                Помідори
-            </div>
-            <div class="bl-count">
-                <button class="bl-minus">-</button>
-                <span class="bl-label">3</span>
-                <button class="bl-plus">+</button>
-            </div>
-            <div class="bl-buttons">
-                <div class="but_button"> Куплене</div>
-                <div class="cancel_button">x</div>
-            </div>
-        </div>
-
-        <div class="bl-row">
-            <div class="bl-product">
-                Яблуки
-            </div>
-            <div class="bl-count">
-                <button class="bl-minus">-</button>
-                <span class="bl-label">3</span>
-                <button class="bl-plus">+</button>
-            </div>
-            <div class="bl-buttons">
-                <div class="but_button"> Куплене</div>
-                <div class="cancel_button">x</div>
-            </div>
-        </div>
-
-
-
-        <div class="bl-row">
-            <div class="bl-product">
-                Огірки
-            </div>
-            <div class="bl-count">
-                <button class="bl-minus">-</button>
-                <span class="bl-label">3</span>
-                <button class="bl-plus">+</button>
-            </div>
-            <div class="bl-buttons">
-                <div class="but_button"> Куплене</div>
-                <div class="cancel_button">x</div>
-            </div>
-        </div>
 
     </div>
     </div>
+
+    <div class="bl-bought">
+        <div class="bl-title">Залишилося</div>
+
+        <div class="bl-left">
+
+        </div>
+        <div class="bl-title-b">Куплене</div>
+        <div class="bl-buyed">
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="left-not-temp" style="display: none;">
+    <span class="bl-b-left-label">
+        <span class="label">Помідори </span>
+        <span class="number">12</span>
+    </span>
+</div>
+<div class="left-temp" style="display: none;">
+    <span class="bl-b-left-label">
+        <span class="label">Помідори </span>
+        <span class="number">12</span>
+    </span>
+</div>
+
+<div class="bl-row-temp" style="display: none">
+    <div class="bl-row">
+        <div class="bl-product">
+            Помідори
+        </div>
+        <div class="bl-count">
+            <button class="bl-minus">-</button>
+            <span class="bl-label">1</span>
+            <button class="bl-plus">+</button>
+        </div>
+        <div class="bl-buttons">
+            <div class="but_button"> Куплене</div>
+            <div class="cancel_button">x</div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/main.js"></script>
+
+<div class="badge">
+    <div class="title"> Buy List </div>
+    <div class="down_part">
+        <p>Created by:
+        Dan Tsk</p>
+    </div>
+</div>
 </body>
 </html>

@@ -1,3 +1,9 @@
+body {
+    background: #DADADA;
+}
+
+
+
 .background{
     background: #DADADA;
     font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
@@ -13,19 +19,25 @@
     padding-top: 20px;
     padding-bottom: 20px;
     min-width: 700px;
-    max-width: 950px; 
+    max-width: 950px;
+
 }
 .bl-list {
+    float: left;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 8px;
     border-width: 2px;
     background: white;
-    margin-right: 300px;
+    width:65%;
+    min-width: 200px;
+
+    display:inline-block;
     padding-top: 1px;
     padding-bottom: 1px;
 }
 
 .bl-row{
+    transition: all 23s ease;
     border-top:1px;
     border-top-color:rgba(34,36,38,0.15);
     border-top-style: solid;
@@ -38,10 +50,13 @@
     margin-bottom: 10px;
 }
 .bl-bought {
+    box-sizing: border-box;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 8px;
-    width: 260px;
     float: right;
+    width: 25%;
+    min-width: 200px;
+    margin-left: 5%;
     background: white;
 }
 
@@ -100,6 +115,22 @@
     padding-bottom: 12px;
 }
 
+.bl-buyed{
+
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.bl-not-left{
+
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
 
 .bl-product{
     font-size: 14px;
@@ -142,7 +173,7 @@
 
 
 .bl-b-left-label{
-    margin-top: 5px;
+    margin: 3px 2px 1px 1px ;
     display: inline-block;
     font-weight: 500;
     color: rgba(0,0,0,.6);
@@ -157,22 +188,25 @@
 .bl-b-left-label .number{
     display: inline-block;
     margin-left: 4px;
-    min-width: 12px;
+    min-width: 10px;
     text-align: center;
     background-color: #F2711C;
     border-radius: 12px;
     font-size: 10px;
     padding-top: 2px;
     padding-bottom: 2px;
-    padding-left: 2px;
+    padding-left: 3px;
     padding-right: 3px;
     color: #ffffff;
+}
+
+.bl-buyed .bl-b-left-label .number, .bl-buyed .bl-b-left-label{
+    text-decoration: line-through;
 }
 
 .bl-title-b{
     padding: 15px;
     font-size:20px;
-    margin-bottom:20px;
     font-weight: 700;
     border-top-width: 2px;
     border-bottom-width: 2px;
@@ -194,14 +228,32 @@
     padding-right: 9px;
     margin-left:5px ;
     margin-right:5px ;
+    position: relative;
 
 }
 .bl-plus {
+
     width:30px;
     border:none;
     border-radius: 50%;
     background: #04a613;
 }
+
+
+.bl-plus:hover:after{
+    background-color: blueviolet;
+    left:-14px;
+    border-radius: 5px;
+    bottom: 35px;
+    color: #fff;
+    content: attr(data-tooltip);
+    padding: 5px ;
+    position: absolute;
+    z-index: 2;
+    width: 50px;
+    content: "asdasd";
+}
+
 .bl-minus{
     width: 30px;
     border:none;
@@ -244,9 +296,112 @@
     float: left;
     width: 80%;
 }
-
 .add_panel_input, .add_panel_button {
     display: inline-block;
+}
+.badge{
+
+    width:100px;
+    height: 75px;
+    background-color:blueviolet;
+    color:white;
+
+    position: fixed;
+    bottom:-50px;
+    left:70px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.6s ease-out ;
+    -webkit-transition: all 0.6s ease-out ;
+    -moz-transition: all 0.6s ease-out ;
+
+}
+
+
+.badge:hover{
+    background-color: blue;
+    bottom: 0;
+}
+
+
+
+
+.badge .title{
+    font-size: 20px;
+}
+
+.badge .down_part{
+     font-size: 15px;
+}
+
+
+.state-active .bl-product{
+    color:blueviolet;
+}
+
+.state-bought .bl-product{
+    text-decoration: line-through;
+}
+
+.state-bought{
+
+    opacity: .7;
+
+}
+.state-bought  .bl-plus, .state-bought .bl-minus{
+
+    opacity: 0;
+}
+
+.state-bought .cancel_button{
+
+    display: none;
+}
+
+
+
+
+
+
+@media screen and (max-width: 500px){
+.bl-list{
+    box-sizing: border-box;
+    width:100%;
+    margin: auto;
+}
+
+.bl-background{
+    min-width: 380px;
+}
+
+
+.bl-bought {
+
+    margin: auto;
+    width: 100%;
+    margin-top: 20px;
+
+
+}
+}
+
+@media print {
+    .badge{
+        border: 1px black solid;
+        background-color:white ;
+        color:black;;
+        bottom:0;
+        height:65px;
+        padding:0;
+        position: fixed;
+
+        left:70px;
+
+    }
+    .badge .title{
+        display: none;
+    }
 }
 
 
